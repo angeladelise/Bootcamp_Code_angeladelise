@@ -1,0 +1,70 @@
+int i;
+float xSize;
+float ySize;
+
+
+void setup(){
+  size(800,600);
+  background(0);
+  i = 0;
+  xSize = mouseX;
+  ySize = mouseY;
+}
+
+void draw(){
+
+  //i is y position
+  while( i <= width){
+    
+    //j is x position
+    int j = 0;
+    while(j <= height + 200){
+      
+      
+       fill(200, random(50), random(200));
+      ellipse(j, i , xSize, ySize);
+   
+      
+      j = j+ 50;
+    
+      
+      xSize= xSize+.5;
+      ySize = ySize -.5;
+      
+      
+    }
+    i = i + 50;
+  }
+  
+ 
+    
+
+  if (keyPressed){
+   if (key == 'u'){
+    xSize = xSize +20; 
+   }
+   
+   if(key == 'h'){
+    ySize = ySize +20; 
+   }
+   
+   if(key== 'g'){
+    xSize = xSize - 20; 
+   }
+   
+   if(key =='s'){
+    ySize = ySize - 20; 
+     
+   }
+    
+    if(key == 'r'){
+     xSize = int(random(300)); 
+    }
+    
+    if(key == 'd'){
+     ySize = int(random(300)); 
+    }
+  }
+  
+}
+
