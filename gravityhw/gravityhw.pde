@@ -51,7 +51,7 @@ void draw(){
   }
   
 
-        if (position.y >= 350){
+        if (position.y >= 450){
        position.y = 0; 
        end = true;
        setup();

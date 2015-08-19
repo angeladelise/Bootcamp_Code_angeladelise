@@ -1,0 +1,49 @@
+class Planet{
+ float xPos;
+ float yPos;
+ float speed;
+ int state;
+ int r,g,b; //colors
+ int size;
+ 
+ Planet(float xPos, float yPos, int size, float speed, int r, int g, int b){
+   this.xPos = xPos;
+   this.yPos = yPos;
+   this.speed = speed;
+   this.r=r;
+   this.g=g;
+   this.b=b;
+   this.size = size;
+   
+ }
+ 
+ void display(){
+   
+   if(state ==0){
+  fill(r, g, b);
+  ellipse(xPos, yPos, size,size); 
+  
+  noStroke();
+  fill(r+20, g-50, b-50, 85);
+  ellipse(xPos, yPos, size+20, size+20);
+  
+  xPos = xPos -speed; //to make it move
+  
+  if(xPos < -25){  //if the planet goes off the screen bring it back, loop
+    xPos = random(650, 1000); //vary the xPos
+    speed = speed +0.05; //increase speed per loop
+    yPos = yPos + random(100,400); //vary yPos per loop
+    
+    if(yPos > 700){ //if yPos goes off screen then restart at 0
+     yPos = 0; 
+      }
+    }
+   }
+  }
+  
+  void hit(){ //when ship hits planet
+    state = 1;
+  }
+  
+  
+}
